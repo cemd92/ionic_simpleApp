@@ -1,0 +1,11 @@
+<ion-view view-title="Playlists">
+  <ion-content>
+   <ionic-datepicker input-obj="datepickerObject">
+	  <button class="button button-block button-positive"> {{datepickerObject.inputDate | date:'dd - MMMM - yyyy'}}</button>
+	  <p class="button button-block button-positive">
+	  	{{select | date:'MM/dd/yyyy h:mm'}}
+	  </p>
+
+	</ionic-datepicker>
+  </ion-content>
+</ion-view>

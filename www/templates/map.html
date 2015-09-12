@@ -1,0 +1,13 @@
+<body ng-controller="MarkerRemoveCtrl">
+
+    <ion-content scroll="false">
+      <div class="mapWrap"  data-tap-disabled="true">
+        <map center="40.963978,29.0655593" zoom="15"> 
+          <!-- ngRepeat: pos in positions -->
+          <marker ng-repeat=" pos in positions" position="{{pos.lat}},{{pos.lng}}"></marker>
+        </map> 
+      </div>
+      <button class="button ion-pinpoint" ng-click="centerOnMe()"></button>
+      
+    </ion-content>
+  </body>
