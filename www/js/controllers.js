@@ -71,16 +71,16 @@ angular.module('starter.controllers', [])
   $scope.u = {text : $scope.loginData.username};
   $scope.p = {text : $scope.loginData.password};
   $scope.date = new Date();
-  //$scope.d = $cordovaDevice.getPlatform();
+  $scope.d = $cordovaDevice.getPlatform();
 
-/*
+
   var device = $cordovaDevice.getDevice();
  
   $scope.manufacturer = device.manufacturer;
   $scope.model = device.model;
   $scope.platform = device.platform;
   $scope.uuid = device.uuid;
-*/
+
 })
 
 .controller('PlaylistsCtrl', function($scope) {
