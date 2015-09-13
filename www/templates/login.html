@@ -1,9 +1,12 @@
-<ion-modal-view>
+
+<ion-modal-view ng-controller="LoginCtrl" >
   <ion-header-bar>
     <h1 class="title">Login</h1>
+<!--    
     <div class="buttons">
       <button class="button button-clear" ng-click="closeLogin()">Close</button>
     </div>
+-->
   </ion-header-bar>
   <ion-content>
     <form ng-submit="doLogin()" name="loginUser">
@@ -19,10 +22,12 @@
         <label class="item">
           <button class="button button-block button-positive" type="submit" ng-disabled='!loginUser.$valid||loginData.password.length<5'>Log in</button>
         </label>
-        <label class="item">
-          <button class="button button-block button-positive" ng-click="gotoRegister()">Register</a>
-        </label>
+
       </div>
     </form>
+
+            <label class="item">
+          <button class="button button-block button-positive" ng-click="gotoRegister()">Register</a>
+        </label>
   </ion-content>
 </ion-modal-view>

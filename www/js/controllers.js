@@ -11,13 +11,16 @@ angular.module('starter.controllers', [])
 
   // Form data for the login modal
   $scope.loginData = {};
-/*
+
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
     scope: $scope
   }).then(function(modal) {
     $scope.modal = modal;
+    $loginModal = $scope.modal;
+    $scope.modal.show();
   });
+
 
   // Triggered in the login modal to close it
   $scope.closeLogin = function() {
@@ -28,7 +31,7 @@ angular.module('starter.controllers', [])
   $scope.login = function() {
     $scope.modal.show();
   };
-*/
+
   $scope.addUser = function() {
 
     var alertPopup = $ionicPopup.alert({
@@ -37,28 +40,34 @@ angular.module('starter.controllers', [])
    });
 
     $timeout(function() {
-
-      $state.go('app.login');
-      
+      $scope.modal.hide();
     }, 1000);
   };
 
   $scope.gotoRegister = function() {
-    $timeout(function() {
 
-      $state.go('app.register');
+
+  $ionicModal.fromTemplateUrl('templates/register.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.modal = modal;
+    $scope.modal.show();
+  });
+
       
-    }, 1000);
+
   };
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
     console.log('Doing login', $scope.loginData);
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
-    $timeout(function() {
+    $loginModal.hide();
 
-      $state.go('app.dash');
-      
+
+  $state.go('app.dash');
+
+    $timeout(function() {
     }, 1000);
   };
 })
@@ -66,12 +75,12 @@ angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope, $stateParams, $filter, $cordovaDevice) {
 
-  console.log($scope.loginData);
+  console.log("Dash:",$scope.loginData);
 
-  $scope.u = {text : $scope.loginData.username};
-  $scope.p = {text : $scope.loginData.password};
+  $scope.user = {text : $scope.loginData.username};
+  $scope.pass = {text : $scope.loginData.password};
   $scope.date = new Date();
-  $scope.d = $cordovaDevice.getPlatform();
+  $scope.dev = $cordovaDevice.getPlatform();
 
 
   var device = $cordovaDevice.getDevice();
@@ -94,7 +103,7 @@ angular.module('starter.controllers', [])
   ];
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('LoginCtrl', function($scope,$ionicModal, $stateParams) {
 })
 
 .controller('contactsCtrl', function($scope, $cordovaContacts){
